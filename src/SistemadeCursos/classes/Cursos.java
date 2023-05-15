@@ -153,6 +153,12 @@ public class Cursos {
 		
 	}
 	
+	public void adicionarAulas(Aulas aula ) {
+		aulas.add(aula);
+		System.out.println("aula adicionada");
+		
+	}
+	
 	
 	
 	} 

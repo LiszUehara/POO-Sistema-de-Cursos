@@ -102,6 +102,11 @@ public class RepositorioCurso implements IRepositorioCurso {
 		curso.getAlunos().add(novaMatricula);
 	}
 	
+	private void removerAluno(Aluno aluno, Cursos curso) {
+		Aluno matriculaRemover = aluno;
+		
+	}
+	
 	
 	
 	private void matricular(int id, Aluno aluno) {
@@ -117,6 +122,12 @@ public class RepositorioCurso implements IRepositorioCurso {
 		}
 	}
 
+	private void removerMatricula(int id, Aluno aluno) {
+		int idCurso =  buscarId(id);
+		if(idCurso != -1) {
+			
+		}
+	}
 	
 	}
 
