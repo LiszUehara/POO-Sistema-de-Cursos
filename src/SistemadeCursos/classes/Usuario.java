@@ -71,6 +71,16 @@ public class Usuario {
 		return "Pessoa [nomeUsuario=" + nomeUsuario + ", email=" + email + ", senha=" + senha + ", matricula="
 				+ matricula + ", cpf=" + cpf + "]";
 	}
+
+	public boolean verificaAdmin() {
+		
+		return false;
+	}
+
+	public boolean verificaInstrutor() {
+		return false;
+	}
+	
 	
 	
 	

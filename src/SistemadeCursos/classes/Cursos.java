@@ -6,9 +6,12 @@ public class Cursos {
 	private String nome;
 	private double nota = 0.0;
 	private int qtdAlunos;
-	private int qtdAulas;
+	private int qtdAulas = 0;
 	private String categoria;
 	private ArrayList<Categoria> categorias = new ArrayList<Categoria>();
+	private ArrayList<Aluno> alunos = new ArrayList<Aluno>();
+	private ArrayList<Aulas> aulas = new ArrayList<Aulas>();
+	private ArrayList<Double> listaNotas =  new ArrayList<Double>();
 	private int id;
 	
 	
@@ -23,6 +26,7 @@ public class Cursos {
 		this.categoria = categoria;
 		this.id = id;
 		this.categorias = categorias;
+		
 	}
 
 	public int getId() {
@@ -35,6 +39,22 @@ public class Cursos {
 
 	public String getNome() {
 		return nome;
+	}
+
+	public ArrayList<Aulas> getAulas() {
+		return aulas;
+	}
+
+	public void setAulas(ArrayList<Aulas> aulas) {
+		this.aulas = aulas;
+	}
+
+	public ArrayList<Double> getListaNotas() {
+		return listaNotas;
+	}
+
+	public void setListaNotas(ArrayList<Double> listaNotas) {
+		this.listaNotas = listaNotas;
 	}
 
 	public void setNome(String nome) {
@@ -106,7 +126,32 @@ public class Cursos {
 		this.qtdAulas = curso.getQtdAulas();
 	};
 	
+	
+	public void assitirCurso() {
+		System.out.println("Você esta assistindo ao curso");
+		exibeInformacoes();
+	}
 
+	public ArrayList<Aluno> getAlunos() {
+		return alunos;
+	}
+
+	public void setAlunos(ArrayList<Aluno> alunos) {
+		this.alunos = alunos;
+	}
+	
+	public void receberNota(double nota) {
+		listaNotas.add(nota);
+		double soma = 0;
+		double valorNota = 0;
+		for(int i = 0; i< listaNotas.size(); i++) {
+			soma =+ i;
+		}
+		
+		valorNota = soma/listaNotas.size();
+		this.setNota(valorNota);
+		
+	}
 	
 	
 	

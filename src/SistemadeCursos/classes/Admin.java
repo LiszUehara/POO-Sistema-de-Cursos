@@ -6,5 +6,13 @@ public class Admin extends Usuario {
 		super(nomeUsuario, email, senha, matricula, cpf);
 
 	}
+	@Override
+	public boolean verificaAdmin(){
+		return true;
+	}
+	
+	public boolean verificaInstrutor() {
+		return false;
+	}
 
 }

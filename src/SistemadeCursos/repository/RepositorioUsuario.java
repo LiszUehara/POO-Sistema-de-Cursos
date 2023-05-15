@@ -95,11 +95,21 @@ public class RepositorioUsuario implements IRepositorioUsuario {
 	}
 
 	@Override
-	public void remover(Usuario usuario) {
+	public void remover(Usuario usuario, int cpf) {
 		Usuario users = consultar(usuario.getCpf());
-		if( users != null) {
-			usuarios.remove(users);
+		if(usuario.verificaAdmin() == true) {
+			
+			if( users != null) {
+				usuarios.remove(users);
+			}
+		} else {
+			if(users.getCpf() == cpf) {
+				usuarios.remove(users);
+			} else {
+				System.out.println("informe seu cpf");
+			}
 		}
+		
 			
 		
 	}

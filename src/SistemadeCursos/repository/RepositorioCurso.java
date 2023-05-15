@@ -3,6 +3,7 @@ package SistemadeCursos.repository;
 
 import java.util.ArrayList;
 
+import SistemadeCursos.classes.Aluno;
 import SistemadeCursos.classes.Categoria;
 import SistemadeCursos.classes.Cursos;
 import SistemadeCursos.classes.Usuario;
@@ -35,14 +36,16 @@ public class RepositorioCurso implements IRepositorioCurso {
 	}
 
 	 public int buscarId(int id){
-	        int pos = -1;
+	        int posicao = -1;
 	        int valor = this.cursos.size();
 	        for (int i = 0; i < valor; i++) {
-	            if(id==this.cursos.get(i).getId()){
-	                pos = i;
+	            if(id == this.cursos.get(i).getId()){
+	                posicao = i;
+	            } else {
+	            	posicao = -1;
 	            }
 	        }
-	        return pos;
+	        return posicao;
 	    }
 
 	 
@@ -54,14 +57,19 @@ public class RepositorioCurso implements IRepositorioCurso {
 	}
 
 	@Override
-	public Boolean delete(int id) {
-		int valor = buscarId(id);
-		if(valor == -1 ) {
-			return false;
+	public Boolean delete(int id, Usuario usuario) {
+		if(usuario.verificaAdmin() == true) {
+			int valor = buscarId(id);
+			if(valor == -1 ) {
+				return false;
+			} else {
+				this.cursos.remove(valor);
+				return true;
+			} 
 		} else {
-			this.cursos.remove(valor);
-			return true;
+			return false;
 		}
+		
 	}
 	
 	
@@ -88,6 +96,27 @@ public class RepositorioCurso implements IRepositorioCurso {
 		atuaisValores.setQtdAlunos(qtdAlunos);
 		
 	}
+	
+	private void adicionarAluno(Aluno aluno, Cursos curso) {
+		Aluno novaMatricula = aluno;
+		curso.getAlunos().add(novaMatricula);
+	}
+	
+	
+	
+	private void matricular(int id, Aluno aluno) {
+		int idCurso =  buscarId(id);
+		if(idCurso != -1) {
+			Cursos cursoValor = cursos.get(idCurso);
+			if(idCurso != -1) {
+				adicionarAluno(aluno, cursoValor);
+				System.out.println("Matriculado com sucesso");
+			} else {
+				System.out.println("Falha ao matricular");
+			}
+		}
+	}
+
 	
 	}
 

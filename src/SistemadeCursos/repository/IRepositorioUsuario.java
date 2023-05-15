@@ -4,7 +4,7 @@ import SistemadeCursos.classes.Usuario;
 
 public interface IRepositorioUsuario {
 	    public void adicionar(Usuario user);
-	    void remover(Usuario conta);
+	    void remover(Usuario conta, int cpf);
 	    void atualizar(Usuario user,int id);
 	    Usuario logar(String email, String senha);
 	    boolean existenteCPF(int cpf);
@@ -13,4 +13,5 @@ public interface IRepositorioUsuario {
 	    boolean existenteNomedeUsuario(String nomeUsuario);
 	    Usuario verificarCpf(int valor);
 	    Usuario consultar(int valor) ;
+	    
 }
