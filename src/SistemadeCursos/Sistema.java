@@ -29,7 +29,7 @@ public class Sistema {
 	}
 	
 	public void  editar(Cursos novoCurso) {
-		this.cursos.editar(novoCurso);
+		this.cursos.editar(novoCurso, 0);
 	}
 	
 	public void adicionar(Usuario usuarios) {

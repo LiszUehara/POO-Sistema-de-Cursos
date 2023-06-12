@@ -2,6 +2,7 @@ package SistemadeCursos.negocio;
 
 import java.util.ArrayList;
 
+import SistemadeCursos.Exceptions.UsuarioNaoExisteException;
 import SistemadeCursos.classes.Usuario;
 import SistemadeCursos.repository.RepositorioUsuario;
 
@@ -13,11 +14,10 @@ public class NegocioUsuario {
 		this.repositorio = repositorio;
 	}
 	
-	public Usuario logar(String email, String senha) {
+	public Usuario logar(String email, String senha) throws UsuarioNaoExisteException {
 		Usuario user = repositorio.logar(email, senha);
 		if(user == null) {
-			System.out.println("Conta não encontrada");
-			return null;
+			throw new UsuarioNaoExisteException();
 		} else {
 			return user;
 		}
@@ -56,9 +56,9 @@ public class NegocioUsuario {
 		}
 	}
 	
-	public void removerConta(Usuario usuarios) {
+	public void removerConta(Usuario usuarios, int cpf) {
 		if(usuarios != null) {
-			repositorio.remover(usuarios);
+			repositorio.remover(usuarios, cpf);
 		} else {
 			System.out.println("Falha ao remover usuario");
 		}

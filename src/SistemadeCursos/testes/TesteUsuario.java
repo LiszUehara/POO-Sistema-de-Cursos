@@ -26,7 +26,7 @@ public class TesteUsuario {
 			System.out.println(c.getNomeUsuario());
 		}
 		
-		repositorio.remover(usuarioB);
+		repositorio.remover(usuarioB, 0);
 		
 		for(Usuario c : repositorio.getUsuario()) {
 			System.out.println(c.getNomeUsuario());

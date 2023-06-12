@@ -1,8 +1,6 @@
 package SistemadeCursos.classes;
 
 import java.util.Objects;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Usuario {
 	private String nomeUsuario;
@@ -73,7 +71,6 @@ public class Usuario {
 	}
 
 	public boolean verificaAdmin() {
-		
 		return false;
 	}
 

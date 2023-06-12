@@ -62,7 +62,6 @@ public class RepositorioUsuario implements IRepositorioUsuario {
             	return usuario;
         }
         	
-
         return null;
     }
     
@@ -78,19 +77,29 @@ public class RepositorioUsuario implements IRepositorioUsuario {
         return null;
     }
     
-    
 
-    
     public Usuario consultarUsuario(Usuario usuario) {
         return null;
     }
-    
     
 
 
 	@Override
 	public void adicionar(Usuario user) {
-		usuarios.add(user);
+		int cpf = user.getCpf();
+		String email = user.getEmail();
+		String senha = user.getSenha();
+		String nomeUsuario  = user.getNomeUsuario();
+		int matricula = user.getMatricula();
+		
+
+		
+		try {
+			usuarios.add(new Usuario(nomeUsuario, email, senha, matricula, cpf));
+		} catch(OutOfMemoryError e){
+			System.out.println("Memoria cheia, sem espaço para mais usuarios");
+		}
+
 		
 	}
 
@@ -146,9 +155,6 @@ public class RepositorioUsuario implements IRepositorioUsuario {
 		return null;
 	}
 
-
-
-	
 
 	@Override
 	public Usuario consultar(int valor) {

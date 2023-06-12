@@ -3,7 +3,6 @@ package SistemadeCursos.negocio;
 import java.util.ArrayList;
 
 import SistemadeCursos.classes.Cursos;
-import SistemadeCursos.repository.IRepositorioCurso;
 import SistemadeCursos.repository.RepositorioCurso;
 
 public class NegocioCurso {
@@ -18,39 +17,56 @@ public class NegocioCurso {
 	public ArrayList<Cursos> listarCursos(){
 		return repositorio.getCursos();
 	}
+
+	
 	
 	public void adicionar(Cursos curso) {
-		if(curso != null) {
-			repositorio.include(curso);
-			System.out.println("Item adicionado");
-		} else {
-			System.out.println("Erro ao adicionar item");
+
+		try {
+			repositorio.adicionar(curso);
+			System.out.println("Curso adicionado com Sucesso");
+
+		} catch (NullPointerException e){
+			System.out.println("Erro ao adicionar o curso");
+		} catch (NumberFormatException e){
+			System.out.println("Nome do curso não pode ser numero");
 		}
+		
 	}
 	
 	public ArrayList<Cursos> procurarCurso(String nome){
-		if(nome != null) {
+		try{
 			return repositorio.buscarNome(nome);
-		} else {
+		} catch(NullPointerException e){
+			System.out.println("Não localizado");
 			return null;
 		}
 	}
 	
 	public void removerCurso(Cursos curso) {
-		boolean funcionou = repositorio.delete(curso.getId());
-		if(funcionou) {
-			System.out.println("Curso deletado com sucesso");
-		} else {
-			System.out.println("Falha ao deletar curso");
+		boolean funcionou = repositorio.delete(curso.getId(), null);
+		try{
+			if(funcionou) {
+				System.out.println("Curso deletado com sucesso");
 		}
+		
+		} catch(NullPointerException e){
+				System.out.println("Falha ao deletar curso, curso não encontrado");
+			
+		}
+		
+		
 	}
 	
-	public void editar(Cursos novoCurso) {
-		if(novoCurso != null) {
-			repositorio.update(novoCurso);
-		} else {
+	public void editar(Cursos novoCurso, int id) {
+
+		try{
+			repositorio.atualizar(novoCurso, id);
+		} catch (NullPointerException e){
 			System.out.println("erro ao atualizar curso");
 		}
+
+		
 	}
 	
 	

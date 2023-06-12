@@ -3,7 +3,6 @@ package SistemadeCursos.repository;
 
 import java.util.ArrayList;
 
-import SistemadeCursos.classes.Aluno;
 import SistemadeCursos.classes.Categoria;
 import SistemadeCursos.classes.Cursos;
 import SistemadeCursos.classes.Usuario;
@@ -19,7 +18,7 @@ public class RepositorioCurso implements IRepositorioCurso {
 	 
 	public RepositorioCurso() {
 		cursos = new ArrayList<Cursos>();
-		//adicionar teste
+		
 	}
 
 	@Override
@@ -51,7 +50,7 @@ public class RepositorioCurso implements IRepositorioCurso {
 	 
 	 
 	@Override
-	public void include(Cursos curso) {
+	public void adicionar(Cursos curso) {
 		this.cursos.add(curso);
 		
 	}
@@ -97,37 +96,7 @@ public class RepositorioCurso implements IRepositorioCurso {
 		
 	}
 	
-	private void adicionarAluno(Aluno aluno, Cursos curso) {
-		Aluno novaMatricula = aluno;
-		curso.getAlunos().add(novaMatricula);
-	}
 	
-	private void removerAluno(Aluno aluno, Cursos curso) {
-		Aluno matriculaRemover = aluno;
-		
-	}
-	
-	
-	
-	private void matricular(int id, Aluno aluno) {
-		int idCurso =  buscarId(id);
-		if(idCurso != -1) {
-			Cursos cursoValor = cursos.get(idCurso);
-			if(idCurso != -1) {
-				adicionarAluno(aluno, cursoValor);
-				System.out.println("Matriculado com sucesso");
-			} else {
-				System.out.println("Falha ao matricular");
-			}
-		}
-	}
-
-	private void removerMatricula(int id, Aluno aluno) {
-		int idCurso =  buscarId(id);
-		if(idCurso != -1) {
-			
-		}
-	}
 	
 	}
 

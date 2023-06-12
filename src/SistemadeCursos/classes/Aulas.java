@@ -15,11 +15,7 @@ public class Aulas {
 	public void setDuracaoAula(int duracaoAula) {
 		this.duracaoAula = duracaoAula;
 	}
-	public Aulas() {
-		super();
-		this.nomeAula = nomeAula;
-		this.duracaoAula = duracaoAula;
-	}
+
 	
 	
 	
