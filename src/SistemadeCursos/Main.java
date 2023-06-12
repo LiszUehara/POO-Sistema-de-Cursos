@@ -1,12 +1,18 @@
 package SistemadeCursos;
 
-
+import SistemadeCursos.Exceptions.UsuarioNaoExisteException;
+import SistemadeCursos.telas.TelaPrincipal;
 
 public class Main {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws UsuarioNaoExisteException {
 		
-	System.out.println("---Bem Vindo ao sistema de Curso--");
+	Sistema sistema = new Sistema();
+	TelaPrincipal tela = new TelaPrincipal(sistema);
+	tela.iniciar();
+
+    }
+
+   
+}
+
 	
-}
-}
- 

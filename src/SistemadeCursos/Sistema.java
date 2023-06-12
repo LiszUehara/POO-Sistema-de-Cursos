@@ -1,5 +1,6 @@
 package SistemadeCursos;
 
+import SistemadeCursos.Exceptions.UsuarioNaoExisteException;
 import SistemadeCursos.classes.Cursos;
 import SistemadeCursos.classes.Usuario;
 import SistemadeCursos.negocio.NegocioCurso;
@@ -35,6 +36,16 @@ public class Sistema {
 	public void adicionar(Usuario usuarios) {
 		this.usuarios.adicionar(usuarios);
 	}
+
+	public boolean logar(String email, String senha) throws UsuarioNaoExisteException {
+		try{
+			Usuario user = this.usuarios.logar(email, senha);
+			return user!= null;
+		}catch (UsuarioNaoExisteException e){
+		System.out.println("<Usuario Nao existe>");
+		return false;
+		}
+	}
 	
 	public void listarUsuarios() {
 		this.usuarios.listarUsuarios();
@@ -44,8 +55,12 @@ public class Sistema {
 		this.usuarios.editarUsuario(usuarios, cpf);
 	}
 	
-	public void removerConta(Usuario usuarios) {
-		this.usuarios.adicionar(usuarios);
+	public void removerConta(int cpf) {
+		this.usuarios.adicionar(cpf);
+	}
+
+	public void consultar(int cpf){
+		this.usuarios.consultar(cpf);
 	}
 	
 }

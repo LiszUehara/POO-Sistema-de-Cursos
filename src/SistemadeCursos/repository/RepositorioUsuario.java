@@ -2,6 +2,7 @@ package SistemadeCursos.repository;
 
 import java.util.ArrayList;
 
+import SistemadeCursos.classes.Admin;
 import SistemadeCursos.classes.Usuario;
 
 public class RepositorioUsuario implements IRepositorioUsuario {
@@ -13,7 +14,9 @@ public class RepositorioUsuario implements IRepositorioUsuario {
 	 ArrayList<Usuario> usuarios;
 
 	public RepositorioUsuario() {
+		Usuario admin = new Admin("admin1", "admin@admin", "senha123", 2423, 1234);
 		usuarios = new ArrayList<Usuario>();
+		usuarios.add(admin);
 	}
 	
 	

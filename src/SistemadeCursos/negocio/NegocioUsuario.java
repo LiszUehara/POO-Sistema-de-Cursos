@@ -25,10 +25,10 @@ public class NegocioUsuario {
 	
 }
 	
-	public void adicionar(Usuario usuarios) {
-		boolean existeEmail = repositorio.existenteEmail(usuarios.getEmail());
-		boolean existeCpf =  repositorio.existenteCPF(usuarios.getCpf());
-		boolean existeMatricula =  repositorio.existenteMatricula(usuarios.getMatricula());
+	public void adicionar(int cpf) {
+		boolean existeEmail = repositorio.existenteEmail(cpf.getEmail());
+		boolean existeCpf =  repositorio.existenteCPF(cpf.getCpf());
+		boolean existeMatricula =  repositorio.existenteMatricula(cpf.getMatricula());
 		
 		if(existeEmail || existeCpf || existeMatricula == true) {
 			System.out.println("Usuario existente");
@@ -63,6 +63,9 @@ public class NegocioUsuario {
 			System.out.println("Falha ao remover usuario");
 		}
 	}
+
+    public void consultar(int cpf) {
+    }
 	
 }
 

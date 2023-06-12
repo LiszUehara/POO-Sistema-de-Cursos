@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 import SistemadeCursos.classes.Categoria;
 import SistemadeCursos.classes.Cursos;
-import SistemadeCursos.classes.Usuario;
 
 public class RepositorioCurso implements IRepositorioCurso {
 	
@@ -56,8 +55,7 @@ public class RepositorioCurso implements IRepositorioCurso {
 	}
 
 	@Override
-	public Boolean delete(int id, Usuario usuario) {
-		if(usuario.verificaAdmin() == true) {
+	public Boolean delete(int id) {
 			int valor = buscarId(id);
 			if(valor == -1 ) {
 				return false;
@@ -65,9 +63,7 @@ public class RepositorioCurso implements IRepositorioCurso {
 				this.cursos.remove(valor);
 				return true;
 			} 
-		} else {
-			return false;
-		}
+		
 		
 	}
 	

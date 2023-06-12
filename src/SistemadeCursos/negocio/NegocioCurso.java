@@ -44,7 +44,9 @@ public class NegocioCurso {
 	}
 	
 	public void removerCurso(Cursos curso) {
-		boolean funcionou = repositorio.delete(curso.getId(), null);
+		boolean funcionou = repositorio.delete(curso.getId());
+
+
 		try{
 			if(funcionou) {
 				System.out.println("Curso deletado com sucesso");

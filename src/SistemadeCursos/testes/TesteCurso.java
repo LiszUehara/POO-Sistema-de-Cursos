@@ -26,7 +26,7 @@ public class TesteCurso {
 			System.out.println(c.getNome());
 		}
 		
-		repositorio.delete(1, null);
+		repositorio.delete(1);
 		
 		for(Cursos c : repositorio.getCursos()) {
 			System.out.println(c.getNome());
